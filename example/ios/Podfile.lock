@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - uipickers (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - uipickers (from `.symlinks/plugins/uipickers/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  uipickers:
+    :path: ".symlinks/plugins/uipickers/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  uipickers: 285e5ef728e7312873d738f4be0437a6bda62ec9
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.11.2
