@@ -74,6 +74,14 @@ class FLDatePicker: NSObject, FlutterPlatformView {
         super.init()
         picker.addTarget(self, action: #selector(onChanged), for: .valueChanged)
         picker.addTarget(self, action: #selector(onEndEdit), for: .editingDidEnd)
+        channel?.setMethodCallHandler({ call, reault in
+            if call.method == "setDate" {
+                if let date = call.arguments as? String {
+                    self._view.date = FLDatePicker.inDateFormatter.date(from: date) ?? Date()
+                }
+            }
+        })
+
     }
 
     @objc func onEndEdit(_ sender: UIDatePicker) {

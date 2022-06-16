@@ -112,6 +112,9 @@ class _UIDatePickerState extends State<UIDatePicker> {
       creationParams["fontSize"] = widget.fontSize;
     }
 
+    if (_channel != null) {
+      _channel?.invokeMethod('setDate', widget.date?.toIso8601String());
+    }
     return UiKitView(
       viewType: viewType,
       layoutDirection: TextDirection.ltr,

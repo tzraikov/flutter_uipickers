@@ -54,6 +54,11 @@ class FLPicker: NSObject, FlutterPlatformView {
         picker.onChanged = { [weak self] value in 
             self?.channel?.invokeMethod("onChanged", arguments: value)
         }
+        channel?.setMethodCallHandler({ call, reault in
+            if call.method == "setIndex" {
+                (self._view as! MyPicker).selectedIndex = (call.arguments as? Int) ?? 0
+            }
+        })
     }
 
     func view() -> UIView {

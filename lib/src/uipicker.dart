@@ -102,6 +102,9 @@ class _UIPickerState extends State<UIPicker> {
     if (widget.textAlignment != null) {
       creationParams["textAlignment"] = widget.textAlignment!.index;
     }
+    if (_channel != null) {
+      _channel?.invokeMethod('setIndex', widget.selectedIndex);
+    }
     return UiKitView(
       viewType: viewType,
       layoutDirection: TextDirection.ltr,
