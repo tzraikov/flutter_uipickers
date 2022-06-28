@@ -80,6 +80,11 @@ class FLDatePicker: NSObject, FlutterPlatformView {
                     self._view.date = FLDatePicker.inDateFormatter.date(from: date) ?? Date()
                 }
             }
+            if call.method == "setMinDate" {
+                if let dateStr = call.arguments as? String {
+                    self._view.minimumDate = FLDatePicker.inDateFormatter.date(from: dateStr) ?? Date()
+                }
+            }
         })
 
     }

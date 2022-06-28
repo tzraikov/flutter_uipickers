@@ -114,6 +114,7 @@ class _UIDatePickerState extends State<UIDatePicker> {
 
     if (_channel != null) {
       _channel?.invokeMethod('setDate', widget.date?.toIso8601String());
+      _channel?.invokeMethod('setMinDate', widget.minimumDate?.toIso8601String());
     }
     return UiKitView(
       viewType: viewType,
