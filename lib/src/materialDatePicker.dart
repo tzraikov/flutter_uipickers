@@ -70,13 +70,8 @@ class _MaterialDatePickerState extends State<MaterialDatePicker> {
   var date = DateTime.now();
 
   @override
-  void initState() {
-    date = widget.initialDate;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    date = widget.initialDate;
     final textStyle = TextStyle(
         color: widget.textColor ?? Colors.black,
         fontSize: widget.fontSize ?? 17,

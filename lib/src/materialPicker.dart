@@ -67,13 +67,8 @@ class _MaterialPickerState extends State<MaterialPicker> {
   var selectedIndex = -1;
 
   @override
-  void initState() {
-    selectedIndex = widget.value ?? -1;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    selectedIndex = widget.value ?? -1;
     return Container(
         decoration: BoxDecoration(
             color: widget.backgroundColor ?? Color(0xFFEAEAEB),

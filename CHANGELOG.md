@@ -1,3 +1,7 @@
+## 0.0.7
+
+* Fix updating issue in material picker
+
 ## 0.0.6
 
 * Allow changing text color in drop down items of the material picker
