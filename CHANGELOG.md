@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Fix material time picker not raising onChanged event
+
 ## 0.0.7
 
 * Fix updating issue in material picker

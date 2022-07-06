@@ -95,10 +95,11 @@ class _MaterialDatePickerState extends State<MaterialDatePicker> {
                     context: context,
                     initialTime:
                         TimeOfDay(hour: date.hour, minute: date.minute));
-                if (t != null) {
+                if (t != null && widget.onChanged != null) {
                   setState(() {
                     date = DateTime(
                         date.year, date.month, date.day, t.hour, t.minute);
+                    widget.onChanged!(date);
                   });
                 }
               } else {
