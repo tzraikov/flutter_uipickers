@@ -18,6 +18,7 @@ class MaterialPicker extends StatefulWidget {
       required this.onChanged,
       this.textColor,
       this.backgroundColor,
+      this.dropDownItemTextColor,
       this.borderWidth,
       this.borderColor,
       this.cornerRadius,
@@ -54,6 +55,9 @@ class MaterialPicker extends StatefulWidget {
 
   /// The alignment to use for the selected item text.
   final AlignmentGeometry? textAlignment;
+
+  /// The color to use when painting the text in a drop down item.
+  final Color? dropDownItemTextColor;
 
   @override
   State<MaterialPicker> createState() => _MaterialPickerState();
@@ -105,11 +109,15 @@ class _MaterialPickerState extends State<MaterialPicker> {
   }
 
   List<DropdownMenuItem<int>> _buildLabels(List<String> items) {
+    var color = widget.dropDownItemTextColor != null
+        ? widget.dropDownItemTextColor
+        : Colors.black;
+    var style = TextStyle(color: color);
     var result = <DropdownMenuItem<int>>[];
     var i = 0;
     for (var item in items) {
       result.add(DropdownMenuItem<int>(
-        child: Text(item),
+        child: Text(item, style: style),
         value: i++,
       ));
     }
