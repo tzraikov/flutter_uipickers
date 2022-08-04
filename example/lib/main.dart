@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
                           type: AdaptivePickerType.material,
                           items: items,
                           value: selectedItem,
+                          dropDownItemTextColor: Colors.green,
                           onChanged: (val) {
                             setState(() {
                               selectedItem = val ?? 0;

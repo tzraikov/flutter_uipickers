@@ -1,3 +1,7 @@
+## 0.0.9
+
+* Add dropDownItemTextColor property in AdaptivePicker
+
 ## 0.0.8
 
 * Fix material time picker not raising onChanged event

@@ -33,6 +33,7 @@ class AdaptivePicker extends StatelessWidget {
       this.cornerRadius,
       this.fontSize,
       this.textAlignment,
+      this.dropDownItemTextColor,
       this.type = AdaptivePickerType.adaptive})
       : super(key: key);
 
@@ -73,6 +74,9 @@ class AdaptivePicker extends StatelessWidget {
   /// When set to cupertino or adaptive it will instantinate a native platform picker when used with iOS.
   final AdaptivePickerType type;
 
+  /// The color to use when painting the text in a drop down item. This property has effect only on Android!
+  final Color? dropDownItemTextColor;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -111,6 +115,7 @@ class AdaptivePicker extends StatelessWidget {
       cornerRadius: cornerRadius,
       fontSize: fontSize,
       textAlignment: getAlignmentGeometry(),
+      dropDownItemTextColor: dropDownItemTextColor,
     );
   }
 
