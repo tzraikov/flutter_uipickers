@@ -1,3 +1,7 @@
+## 0.0.10
+
+* Upgraded `intl` package to ^0.18.0 to enable support for Flutter 3.10
+
 ## 0.0.9
 
 * Add dropDownItemTextColor property in AdaptivePicker
