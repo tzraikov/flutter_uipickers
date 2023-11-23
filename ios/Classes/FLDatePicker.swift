@@ -58,20 +58,31 @@ class FLDatePicker: NSObject, FlutterPlatformView {
             }
         }
         if let fontSize = argsDict["fontSize"] as? CGFloat {
-            let _subviews = picker.subviews.first?.subviews.first?.subviews
-            if _subviews.count >= 2 {
-                if let lblView = picker.subviews.first?.subviews.first?.subviews[1] {
+            /// iOS 17.0 and under
+            if let _subviews = picker.subviews.first?.subviews.first?.subviews, _subviews.count > 1 {
+                let lblView = _subviews[1]
                 lblView.setValue(UIFont.systemFont(ofSize: fontSize), forKey: "font")
-                }
+            }
+            /// iOS 17.1 and up
+            else if let _subviews = picker.subviews.first?.subviews.first?.subviews.first?.subviews, _subviews.count > 1 {
+                let lblView = _subviews[1]
+                lblView.setValue(UIFont.systemFont(ofSize: fontSize), forKey: "font")
             }
         }
+        
         if let textColorStr = argsDict["textColor"] as? String  {
-            let _subviews = picker.subviews.first?.subviews.first?.subviews
-            if _subviews.count >= 2 {
-                if let lblView = picker.subviews.first?.subviews.first?.subviews[1] {
+            /// iOS 17.0 and under
+            if let _subviews = picker.subviews.first?.subviews.first?.subviews,
+                _subviews.count > 1 {
+                let lblView = _subviews[1]
                 textColor = UIColor(hexString: textColorStr)
                 lblView.setValue(textColor, forKey: "textColor")
-                }
+            }
+            /// iOS 17.1 and up
+            else if let _subviews = picker.subviews.first?.subviews.first?.subviews.first?.subviews, _subviews.count > 1 {
+                let lblView = _subviews[1]
+                textColor = UIColor(hexString: textColorStr)
+                lblView.setValue(textColor, forKey: "textColor")
             }
         }
         picker.sizeToFit()
@@ -96,11 +107,18 @@ class FLDatePicker: NSObject, FlutterPlatformView {
     }
 
     @objc func onEndEdit(_ sender: UIDatePicker) {
-        if textColor != nil, let lblView = sender.subviews.first?.subviews.first?.subviews[1] {
+        /// iOS 17.0 and under
+        if textColor != nil, let subviews = sender.subviews.first?.subviews.first?.subviews, subviews.count > 1 {
+            let lblView = subviews[1]
+            lblView.setValue(textColor, forKey: "textColor");
+        }
+        /// iOS 17.1 and up
+        else if textColor != nil, let subviews = sender.subviews.first?.subviews.first?.subviews.first?.subviews, subviews.count > 1 {
+            let lblView = subviews[1]
             lblView.setValue(textColor, forKey: "textColor");
         }
     }
-
+    
     @objc func onChanged(_ sender: UIDatePicker) {
         let dateStr = FLDatePicker.inDateFormatter.string(from: sender.date)
         channel?.invokeMethod("onChanged", arguments: dateStr)

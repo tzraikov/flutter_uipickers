@@ -1,3 +1,6 @@
+## 1.0.0
+- Fixed crashing issue on iOS 17.1 and up
+
 ## 0.0.9
 
 * Add dropDownItemTextColor property in AdaptivePicker

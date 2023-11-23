@@ -35,11 +35,13 @@ class _MyAppState extends State<MyApp> {
                           items: items,
                           value: selectedItem,
                           dropDownItemTextColor: Colors.green,
+                          textColor: Colors.red,
+                          tintColor: Colors.pink,
+                          fontSize: 24,
                           onChanged: (val) {
                             setState(() {
                               selectedItem = val ?? 0;
-                              selectedDate = DateTime.now()
-                                  .add(Duration(days: selectedItem));
+                              selectedDate = DateTime.now().add(Duration(days: selectedItem));
                             });
                           })),
                   const SizedBox(height: 12),
@@ -49,14 +51,16 @@ class _MyAppState extends State<MyApp> {
                       child: AdaptiveDatePicker(
                         key: key2,
                         type: AdaptiveDatePickerType.adaptive,
+                        textColor: Colors.red,
+                        tintColor: Colors.pink,
+                        fontSize: 24,
                         initialDate: selectedDate,
                         firstDate: DateTime.now(),
                         lastDate: DateTime.now().add(const Duration(days: 10)),
                         onChanged: (date) {
                           setState(() {
                             selectedDate = date;
-                            selectedItem =
-                                daysBetween(DateTime.now(), selectedDate);
+                            selectedItem = daysBetween(DateTime.now(), selectedDate);
                           });
                         },
                       ))
