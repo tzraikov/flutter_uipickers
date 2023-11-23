@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
                       height: 34,
                       child: AdaptivePicker(
                           key: key1,
-                          type: AdaptivePickerType.material,
+                          type: AdaptivePickerType.adaptive,
                           items: items,
                           value: selectedItem,
                           dropDownItemTextColor: Colors.green,
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                       height: 34,
                       child: AdaptiveDatePicker(
                         key: key2,
-                        type: AdaptiveDatePickerType.material,
+                        type: AdaptiveDatePickerType.adaptive,
                         initialDate: selectedDate,
                         firstDate: DateTime.now(),
                         lastDate: DateTime.now().add(const Duration(days: 10)),

@@ -58,14 +58,20 @@ class FLDatePicker: NSObject, FlutterPlatformView {
             }
         }
         if let fontSize = argsDict["fontSize"] as? CGFloat {
-            if let lblView = picker.subviews.first?.subviews.first?.subviews[1] {
+            let _subviews = picker.subviews.first?.subviews.first?.subviews
+            if _subviews.count >= 2 {
+                if let lblView = picker.subviews.first?.subviews.first?.subviews[1] {
                 lblView.setValue(UIFont.systemFont(ofSize: fontSize), forKey: "font")
+                }
             }
         }
         if let textColorStr = argsDict["textColor"] as? String  {
-            if let lblView = picker.subviews.first?.subviews.first?.subviews[1] {
+            let _subviews = picker.subviews.first?.subviews.first?.subviews
+            if _subviews.count >= 2 {
+                if let lblView = picker.subviews.first?.subviews.first?.subviews[1] {
                 textColor = UIColor(hexString: textColorStr)
                 lblView.setValue(textColor, forKey: "textColor")
+                }
             }
         }
         picker.sizeToFit()

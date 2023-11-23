@@ -1,7 +1,7 @@
 name: uipickers
 description: A plugin library that exposes platform specific date, time and picker popups. It uses native iOS 14 style pickers on iOS and corresponding material pickers on other platforms.
 version: 0.0.9
-homepage:  https://github.com/tzraikov/flutter_uipickers
+publish_to: https://onepub.dev/api/xpupsdavuh/
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.17.0
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
