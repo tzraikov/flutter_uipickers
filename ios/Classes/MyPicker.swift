@@ -16,12 +16,15 @@ class MyPicker: UIView {
     }()
 
     var items: [String] = [] {
-        didSet { button.menu = buildMenu() }
+        didSet {
+            updateSelectedTitle()
+            button.menu = buildMenu()
+        }
     }
 
     var selectedIndex: Int = -1 {
         didSet {
-            button.setTitle(selectedIndex >= 0 ? items[selectedIndex] : "", for: .normal)
+            updateSelectedTitle()
             button.menu = buildMenu()
         }
     }
@@ -41,6 +44,14 @@ class MyPicker: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func updateSelectedTitle() {
+        guard items.indices.contains(selectedIndex) else {
+            button.setTitle("", for: .normal)
+            return
+        }
+        button.setTitle(items[selectedIndex], for: .normal)
     }
 
     private func buildMenu() -> UIMenu {
